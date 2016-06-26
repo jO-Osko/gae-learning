@@ -1,0 +1,20 @@
+application: moj-testni-projekt-135
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /static # ko uporabnik zahteva kar se nahaja pod tem naslovom izpolni naslednja navodila
+  static_dir: mapa_v_kateri_se_nahajajo_staticne_datoteke_ki_jih_dobimo_ko_zahtevamo_mapo_static/ 
+
+- url: .*
+  script: main.app
+  
+libraries:
+- name: webapp2
+  version: "2.5.2"
